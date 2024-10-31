@@ -190,8 +190,96 @@
         <div class="posts-list">
           
             <article class="post-preview">
-    <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/test/">
-        <h2 class="post-title">Test</h2>
+    <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/diffie-hellman%E5%92%8Celgamal/">
+        <h2 class="post-title">New Post Title</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on October 31, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h1 id="diffie-hellman">Diffie-Hellman</h1>
+<p>Diffie-Hellman密钥交换是一种允许两方在不安全的通道上安全地共享密钥的方法。其基本思想是利用离散对数问题的难解性，确保即使攻击者能够监听双方的通信，也无法轻易计算出共享的密钥。</p>
+<h3 id="具体步骤">具体步骤</h3>
+<ol>
+<li>
+<p><strong>初始化</strong>：</p>
+<ul>
+<li>两方（通常称为Alice和Bob）首先选择一个大型素数 p 和一个生成元 g（一个小于 p 的整数，且 g 在模 p 意义下是一个原根).</li>
+</ul>
+</li>
+<li>
+<p><strong>私钥选择</strong>：</p>
+<ul>
+<li>Alice 随机选择一个私钥 a，Bob 随机选择一个私钥 b。这两个私钥必须保密。</li>
+</ul>
+</li>
+<li>
+<p><strong>计算公钥</strong>：</p>
+<ul>
+<li>Alice 计算她的公钥 A： $A = g^a \mod p$</li>
+<li>Bob 计算他的公钥 B： $B = g^b \mod p$</li>
+</ul>
+</li>
+<li>
+<p><strong>交换公钥</strong>：</p>
+<ul>
+<li>Alice 将公钥 A 发送给 Bob，Bob 将公钥 B 发送给 Alice。</li>
+</ul>
+</li>
+<li>
+<p><strong>计算共享密钥</strong>：</p>
+<ul>
+<li>Alice 使用 Bob 的公钥 B 计算共享密钥K： $K = B^a \mod p$</li>
+<li>Bob 使用 Alice 的公钥 A 计算共享密钥K： $K = A^b \mod p$</li>
+<li>由于数学性质，两个计算出的共享密钥 K 是相同的：$K = (g^b)^a \mod p = (g^a)^b \mod p$</li>
+</ul>
+</li>
+</ol>
+<h3 id="安全性分析">安全性分析</h3>
+<ul>
+<li>
+<p><strong>离散对数问题</strong>：尽管公钥 A 和 B 是公开的，攻击者如果试图计算共享密钥 K，需要解决离散对数问题，即从 A 和 g 计算出私钥 a 或从 B 和 g 计算出私钥 b。这是目前已知的非常困难的问题。</p>
+        <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/diffie-hellman%E5%92%8Celgamal/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/tags/tag1/">tag1</a>&nbsp;
+        
+       
+       <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/tags/tag2/">tag2</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/twenty-years/">
+        <h2 class="post-title">Twenty Years of  Attacks on the RSA  Cryptosystem</h2>
         
         
         
@@ -269,7 +357,7 @@ x$≡1\ mod\ p$, $x \equiv -1 \mod q$,计算 $\text{gcd}(x - 1, N)$,d得到p或q
 </ul>
 <h1 id="low-private-exponent-attacksd小">low private exponent attacks（d小）</h1>
 <p>为了减少解密时间，可能使用较小的 d ，但是 d 很小容易被使用 Wiener 定理轻松破解</p>
-        <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/test/" class="post-read-more">[Read More]</a>
+        <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/twenty-years/" class="post-read-more">[Read More]</a>
         
     </div>
 
