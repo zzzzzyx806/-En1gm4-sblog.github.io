@@ -1,0 +1,635 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Elliptic Curves  Cryptography - </title>
+
+  <meta name="description" content="了解椭圆曲线
+椭圆曲线的定义是满足特定形式的方程的点的集合。具体而言，椭圆曲线的方程通常写为：
+$$
+Y^2 = X^3 &#43; AX &#43; B
+$$
+其中，A和B是常数，并且这些常数需要满足一个条件，称为判别式条件：
+$$
+4A^3 &#43; 27B^2 \neq 0
+$$
+这个条件确保了椭圆曲线没有重根，从而避免了曲线出现奇点
+
+奇点是指在曲线或方程中存在的不规则点，通常表现为导数不存在或不连续的情况。在椭圆曲线中，奇点意味着在该点的切线不唯一，可能导致曲线在该点交叉或重叠，从而影响其结构和性质。
+
+椭圆曲线的加法法则
+椭圆曲线上的点可以通过一种特殊的方式进行“加法”。在几何上，如果有两个点P和Q在椭圆曲线上，我们可以通过绘制经过这两个点的直线L，并找到这条直线与椭圆曲线的第三个交点R。然后，我们将R在x轴上反射（对称点），得到的点即为P和Q的和，记作
+$$
+P \oplus Q = R&rsquo;
+$$
+反射点与特殊情况
+当尝试将一个点$P$与其关于x轴的反射点$P&rsquo;$相加时，直线将会是垂直的，且不会产生第三个交点。在这种情况下，定义一个额外的点$O$（在无穷远处），使得对于任何点$P$都有：
+$$
+P \oplus P&rsquo; = O
+$$
+这意味着与其反射相加的结果是椭圆曲线的“零点”。
+加法的性质
+椭圆曲线的加法满足以下性质，使得所有的点形成一个阿贝尔群:
+
+除群的性质外，还满足交换性
+
+
+身份元素：对任意点$P$，有$$P &#43; O = P$$
+逆元素：对任意点$P$，有$$P &#43; (-P) = O$$
+结合律：对于任意点$P$、$Q$和$R$，有$$(P &#43; Q) &#43; R = P &#43; (Q &#43; R)$$
+交换律：对于任意点$P$和$Q$，有$$P &#43; Q = Q &#43; P$$
+
+有限域上的椭圆曲线
+椭圆曲线的定义
+首先，定义了一个在有限域 $F_p$ 上的椭圆曲线。对于一个素数 $p \geq 3$，椭圆曲线的方程形式为：
+$$
+E: Y^2 = X^3 &#43; AX &#43; B
+$$
+其中 $A, B \in F_p$，并且必须满足条件 $4A^3 &#43; 27B^2 \neq 0$，以确保曲线没有奇点。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "En1gm4",
+    
+    "url": "https:\/\/zzzzzyx806.github.io\/-En1gm4-sblog.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/zzzzzyx806.github.io\/-En1gm4-sblog.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/zzzzzyx806.github.io\/-En1gm4-sblog.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/zzzzzyx806.github.io\/-En1gm4-sblog.github.io\/post\/elliptic-curves--cryptography\/",
+          "name": "Elliptic curves cryptography"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Elliptic Curves  Cryptography",
+  "description" : "了解椭圆曲线 椭圆曲线的定义是满足特定形式的方程的点的集合。具体而言，椭圆曲线的方程通常写为： $$ Y^2 = X^3 \u002b AX \u002b B $$ 其中，A和B是常数，并且这些常数需要满足一个条件，称为判别式条件：\n$$ 4A^3 \u002b 27B^2 \\neq 0 $$ 这个条件确保了椭圆曲线没有重根，从而避免了曲线出现奇点\n奇点是指在曲线或方程中存在的不规则点，通常表现为导数不存在或不连续的情况。在椭圆曲线中，奇点意味着在该点的切线不唯一，可能导致曲线在该点交叉或重叠，从而影响其结构和性质。\n椭圆曲线的加法法则 椭圆曲线上的点可以通过一种特殊的方式进行“加法”。在几何上，如果有两个点P和Q在椭圆曲线上，我们可以通过绘制经过这两个点的直线L，并找到这条直线与椭圆曲线的第三个交点R。然后，我们将R在x轴上反射（对称点），得到的点即为P和Q的和，记作\n$$ P \\oplus Q = R\u0026rsquo; $$\n反射点与特殊情况 当尝试将一个点$P$与其关于x轴的反射点$P\u0026rsquo;$相加时，直线将会是垂直的，且不会产生第三个交点。在这种情况下，定义一个额外的点$O$（在无穷远处），使得对于任何点$P$都有：\n$$ P \\oplus P\u0026rsquo; = O $$\n这意味着与其反射相加的结果是椭圆曲线的“零点”。\n加法的性质 椭圆曲线的加法满足以下性质，使得所有的点形成一个阿贝尔群:\n除群的性质外，还满足交换性\n身份元素：对任意点$P$，有$$P \u002b O = P$$ 逆元素：对任意点$P$，有$$P \u002b (-P) = O$$ 结合律：对于任意点$P$、$Q$和$R$，有$$(P \u002b Q) \u002b R = P \u002b (Q \u002b R)$$ 交换律：对于任意点$P$和$Q$，有$$P \u002b Q = Q \u002b P$$ 有限域上的椭圆曲线 椭圆曲线的定义 首先，定义了一个在有限域 $F_p$ 上的椭圆曲线。对于一个素数 $p \\geq 3$，椭圆曲线的方程形式为： $$ E: Y^2 = X^3 \u002b AX \u002b B $$ 其中 $A, B \\in F_p$，并且必须满足条件 $4A^3 \u002b 27B^2 \\neq 0$，以确保曲线没有奇点。\n",
+  "inLanguage" : "en",
+  "wordCount":  540 ,
+  "datePublished" : "2024-11-09T00:00:00\u002b00:00",
+  "dateModified" : "2024-11-09T00:00:00\u002b00:00",
+  "image" : "https:\/\/zzzzzyx806.github.io\/-En1gm4-sblog.github.io\/",
+  "keywords" : [ "Crypto" ],
+  "mainEntityOfPage" : "https:\/\/zzzzzyx806.github.io\/-En1gm4-sblog.github.io\/post\/elliptic-curves--cryptography\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/zzzzzyx806.github.io\/-En1gm4-sblog.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/zzzzzyx806.github.io\/-En1gm4-sblog.github.io\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Elliptic Curves  Cryptography" />
+<meta property="og:description" content="了解椭圆曲线
+椭圆曲线的定义是满足特定形式的方程的点的集合。具体而言，椭圆曲线的方程通常写为：
+$$
+Y^2 = X^3 &#43; AX &#43; B
+$$
+其中，A和B是常数，并且这些常数需要满足一个条件，称为判别式条件：
+$$
+4A^3 &#43; 27B^2 \neq 0
+$$
+这个条件确保了椭圆曲线没有重根，从而避免了曲线出现奇点
+
+奇点是指在曲线或方程中存在的不规则点，通常表现为导数不存在或不连续的情况。在椭圆曲线中，奇点意味着在该点的切线不唯一，可能导致曲线在该点交叉或重叠，从而影响其结构和性质。
+
+椭圆曲线的加法法则
+椭圆曲线上的点可以通过一种特殊的方式进行“加法”。在几何上，如果有两个点P和Q在椭圆曲线上，我们可以通过绘制经过这两个点的直线L，并找到这条直线与椭圆曲线的第三个交点R。然后，我们将R在x轴上反射（对称点），得到的点即为P和Q的和，记作
+$$
+P \oplus Q = R&rsquo;
+$$
+反射点与特殊情况
+当尝试将一个点$P$与其关于x轴的反射点$P&rsquo;$相加时，直线将会是垂直的，且不会产生第三个交点。在这种情况下，定义一个额外的点$O$（在无穷远处），使得对于任何点$P$都有：
+$$
+P \oplus P&rsquo; = O
+$$
+这意味着与其反射相加的结果是椭圆曲线的“零点”。
+加法的性质
+椭圆曲线的加法满足以下性质，使得所有的点形成一个阿贝尔群:
+
+除群的性质外，还满足交换性
+
+
+身份元素：对任意点$P$，有$$P &#43; O = P$$
+逆元素：对任意点$P$，有$$P &#43; (-P) = O$$
+结合律：对于任意点$P$、$Q$和$R$，有$$(P &#43; Q) &#43; R = P &#43; (Q &#43; R)$$
+交换律：对于任意点$P$和$Q$，有$$P &#43; Q = Q &#43; P$$
+
+有限域上的椭圆曲线
+椭圆曲线的定义
+首先，定义了一个在有限域 $F_p$ 上的椭圆曲线。对于一个素数 $p \geq 3$，椭圆曲线的方程形式为：
+$$
+E: Y^2 = X^3 &#43; AX &#43; B
+$$
+其中 $A, B \in F_p$，并且必须满足条件 $4A^3 &#43; 27B^2 \neq 0$，以确保曲线没有奇点。">
+<meta property="og:url" content="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/elliptic-curves--cryptography/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="En1gm4" />
+
+  <meta name="twitter:title" content="Elliptic Curves  Cryptography" />
+  <meta name="twitter:description" content="了解椭圆曲线
+椭圆曲线的定义是满足特定形式的方程的点的集合。具体而言，椭圆曲线的方程通常写为：
+$$
+Y^2 = X^3 &#43; AX &#43; B
+$$
+其中，A和B是常数，并且这些常数需要满足一个条件，称为判别式条件：
+$$
+4A^3 &#43; 27B^2 \neq 0
+$$
+这个条件确保了椭圆曲线没有重根，从而避免了曲线出现奇点
+
+奇点是指在曲线或方程中存在的不规则点，通常表现为导数不存在或不连续的情况。在 …">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="generator" content="Hugo 0.138.0">
+  <link rel="alternate" href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/index.xml" type="application/rss+xml" title="En1gm4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/css/syntax.css" /><link rel="stylesheet" href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/katex.min.css" crossorigin="anonymous">
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/katex.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {
+              delimiters: [
+                  {left: "$$", right: "$$", display: true},
+                  {left: "$", right: "$", display: false}
+              ]
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/">En1gm4</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Elliptic Curves  Cryptography</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on November 9, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="了解椭圆曲线">了解椭圆曲线</h1>
+<p>椭圆曲线的定义是满足特定形式的方程的点的集合。具体而言，椭圆曲线的方程通常写为：
+$$
+Y^2 = X^3 + AX + B
+$$
+其中，A和B是常数，并且这些常数需要满足一个条件，称为判别式条件：</p>
+<p>$$
+4A^3 + 27B^2 \neq 0
+$$
+这个条件确保了椭圆曲线没有重根，从而避免了曲线出现奇点</p>
+<blockquote>
+<p>奇点是指在曲线或方程中存在的不规则点，通常表现为导数不存在或不连续的情况。在椭圆曲线中，奇点意味着在该点的切线不唯一，可能导致曲线在该点交叉或重叠，从而影响其结构和性质。</p>
+</blockquote>
+<h3 id="椭圆曲线的加法法则">椭圆曲线的加法法则</h3>
+<p>椭圆曲线上的点可以通过一种特殊的方式进行“加法”。在几何上，如果有两个点P和Q在椭圆曲线上，我们可以通过绘制经过这两个点的直线L，并找到这条直线与椭圆曲线的第三个交点R。然后，我们将R在x轴上反射（对称点），得到的点即为P和Q的和，记作</p>
+<p>$$
+P \oplus Q = R&rsquo;
+$$</p>
+<h3 id="反射点与特殊情况">反射点与特殊情况</h3>
+<p>当尝试将一个点$P$与其关于x轴的反射点$P&rsquo;$相加时，直线将会是垂直的，且不会产生第三个交点。在这种情况下，定义一个额外的点$O$（在无穷远处），使得对于任何点$P$都有：</p>
+<p>$$
+P \oplus P&rsquo; = O
+$$</p>
+<p>这意味着与其反射相加的结果是椭圆曲线的“零点”。</p>
+<h3 id="加法的性质">加法的性质</h3>
+<p>椭圆曲线的加法满足以下性质，使得所有的点形成一个阿贝尔群:</p>
+<blockquote>
+<p>除群的性质外，还满足交换性</p>
+</blockquote>
+<ul>
+<li><strong>身份元素</strong>：对任意点$P$，有$$P + O = P$$</li>
+<li><strong>逆元素</strong>：对任意点$P$，有$$P + (-P) = O$$</li>
+<li><strong>结合律</strong>：对于任意点$P$、$Q$和$R$，有$$(P + Q) + R = P + (Q + R)$$</li>
+<li><strong>交换律</strong>：对于任意点$P$和$Q$，有$$P + Q = Q + P$$</li>
+</ul>
+<h1 id="有限域上的椭圆曲线">有限域上的椭圆曲线</h1>
+<h2 id="椭圆曲线的定义">椭圆曲线的定义</h2>
+<p>首先，定义了一个在有限域 $F_p$ 上的椭圆曲线。对于一个素数 $p \geq 3$，椭圆曲线的方程形式为：
+$$
+E: Y^2 = X^3 + AX + B
+$$
+其中 $A, B \in F_p$，并且必须满足条件 $4A^3 + 27B^2 \neq 0$，以确保曲线没有奇点。</p>
+<h2 id="点的集合">点的集合</h2>
+<p>定义在 $F_p$ 上的椭圆曲线的点集为：
+$$
+E(F_p) = {(x, y) \mid x, y \in F_p \text{ 且 } y^2 = x^3 + Ax + B} \cup {O}
+$$
+这里 $O$ 是无穷远点，表示加法的单位元。</p>
+<h2 id="点的加法">点的加法</h2>
+<p>设 $P = (x_1, y_1)$ 和 $Q = (x_2, y_2)$，定义它们的和为 $P + Q = (x_3, y_3)$。加法算法中使用的操作包括加法、减法、乘法和除法，这些操作都在有限域 $F_p$ 中进行，因此 $(x_3, y_3)$ 的坐标也在 $F_p$ 中。</p>
+<blockquote>
+<p>所有计算都要模p</p>
+</blockquote>
+<p>椭圆曲线加法算法对 $P$ 和 $Q$ 的应用将生成一个在 $E(F_p)$ 中的点。该加法运算遵循所有群的性质，包括单位元、逆元和交换律。</p>
+<h2 id="点的数量">点的数量</h2>
+<p>通过替换不同的 $X$ 值，能发现 $E(F_p)$ 上的点数量是有限的。具体地，对于每个 $X$，方程 $Y^2 = X^3 + AX + B$ 最多有两个对应的 $Y$ 值，因此 $E(F_p)$ 的点数最多为 $2p + 1$。但实际上，点的数量远小于这个上界。</p>
+<h3 id="哈塞定理">哈塞定理</h3>
+<p>哈塞定理给出了关于椭圆曲线 $E$ 在 $F_p$ 上的点数量的更精确的结果：
+$$
+#E(F_p) = p + 1 - t_p
+$$
+其中 $|t_p| \leq 2p$，$t_p$ 被称为 Frobenius 跟踪量，涉及到一个与椭圆曲线相关的线性变换的迹。</p>
+<h1 id="ecdh">ECDH</h1>
+<h3 id="1-公共参数创建">1. 公共参数创建</h3>
+<p>公布以下公共参数：</p>
+<ul>
+<li>一个大素数 ( p )</li>
+<li>一个椭圆曲线 ( E )</li>
+<li>一个点 $P \in E(F_p)$</li>
+</ul>
+<h3 id="2-私有计算">2. 私有计算</h3>
+<ul>
+<li>
+<p>$A$ 选择一个私密整数  $n_A$</p>
+</li>
+<li>
+<p>$B$ 选择一个私密整数 $n_B$</p>
+</li>
+<li>
+<p>$A$ 计算点
+$$
+Q_A = n_A P
+$$</p>
+</li>
+<li>
+<p>$B$ 计算点
+$$
+Q_B = n_B P
+$$</p>
+</li>
+</ul>
+<h3 id="3-公共值交换">3. 公共值交换</h3>
+<ul>
+<li>$A$ 将  $Q_A$  发送给 $B$ 。</li>
+<li>$B$ 将  $Q_B$  发送给 $B$ 。</li>
+</ul>
+<h3 id="4-进一步的私密计算">4. 进一步的私密计算</h3>
+<ul>
+<li>$A$ 计算共享密钥</li>
+<li>$$
+n_A Q_B
+$$</li>
+<li>$B$ 计算共享密钥
+$$
+n_B Q_A
+$$
+最终的共享密钥为：
+$$
+n_A Q_B = n_A (n_B P) = n_B (n_A P) = n_B Q_A
+$$</li>
+</ul>
+<h1 id="ec-elggamal">EC-ElGgamal</h1>
+<h3 id="1-公钥参数创建">1. 公钥参数创建</h3>
+<p>公布一个大素数 $p$，一个椭圆曲线 $E$，以及一个点 $P \in E(F_p)$。</p>
+<h3 id="2-密钥创建">2. 密钥创建</h3>
+<p>爱丽丝选择一个私密整数 $n_A$ 作为她的私钥。<br>
+她计算公钥
+$$
+Q_A = n_A P
+$$
+并发布该公钥。</p>
+<h3 id="3-加密过程">3. 加密过程</h3>
+<p>鲍勃选择要加密的明文 $M \in E(F_p)$。<br>
+他随机选择一个整数 $k$。<br>
+然后，他计算：
+$$
+C_1 = kP
+$$
+$$
+C_2 = M + kQ_A
+$$
+鲍勃将密文点 $(C_1, C_2)$ 发送给爱丽丝。</p>
+<h2 id="4-解密过程">4. 解密过程</h2>
+<p>爱丽丝接收到密文 $(C_1, C_2)$，她计算：
+$$
+M = C_2 - n_A C_1
+$$
+这一计算结果等于明文 $M$。</p>
+<h3 id="实际问题">实际问题</h3>
+<p>虽然椭圆曲线Elgamal密码系统在理论上有效，但在实际应用中存在一些困难：</p>
+<ol>
+<li><strong>明文与椭圆曲线点的关联</strong>：如何将明文消息有效地映射到椭圆曲线的点上并不是很明显。</li>
+<li><strong>消息扩展问题</strong>：椭圆曲线Elgamal的消息扩展比普通的Elgamal高出4倍。因为每个点 $M$ 在 $E(F_p)$ 中都是一个坐标对，密文 $(C_1, C_2)$ 包含了四个数字（每个点有两个坐标），这导致消息体积的增加。</li>
+</ol>
+<h3 id="解决方案">解决方案</h3>
+<p>为了解决这些问题，提出了几种方法：</p>
+<ul>
+<li><strong>将明文与随机点结合</strong>：鲍勃可以随机选择一个点 $M$，并使用它作为明文的掩码。</li>
+<li><strong>点坐标压缩</strong>：只发送 $C_1$ 和 $C_2$ 的 $x$ 坐标，而不是完整的点。这可以通过发送额外的位来实现，以指示 $y$ 坐标的符号。例如：
+<ul>
+<li>额外位 = 0 如果 $0 \leq y &lt; \frac{1}{2}p$</li>
+<li>额外位 = 1 如果 $\frac{1}{2}p &lt; y &lt; p$</li>
+</ul>
+</li>
+</ul>
+<h1 id="椭圆曲线签名">椭圆曲线签名</h1>
+<p>椭圆曲线数字签名算法（ECDSA）是数字签名算法（DSA）的直接类比。ECDSA 被广泛应用，尤其是在签名大小重要的场合。</p>
+<h3 id="ecdsa-的具体工作原理">ECDSA 的具体工作原理</h3>
+<h3 id="密钥生成">密钥生成：</h3>
+<ol>
+<li>选择一个大素数 $p$ 和一个椭圆曲线 $E$ 及其基点 $G$。</li>
+<li>生成私钥 $d$，并计算对应的公钥 $V = dG$。</li>
+</ol>
+<h3 id="签名过程">签名过程：</h3>
+<ol>
+<li>给定要签名的消息 $m$，首先对消息进行哈希，得到哈希值 $e$。</li>
+<li>选择一个随机数 $k$（必须是私密的），然后计算点 $R = kG$ 并取其 $x$ 坐标 $r$。</li>
+<li>计算 $s = k^{-1}(e + dr) \mod q$，其中 $q$ 是椭圆曲线的一个参数。</li>
+<li>签名为 $(r, s)$。</li>
+</ol>
+<h3 id="验证过程">验证过程：</h3>
+<ol>
+<li>接收签名 $(r, s)$ 和消息 $m$，对消息 $m$ 进行哈希，得到哈希值 $e$。</li>
+<li>计算 $w = s^{-1} \mod q$ 和 $u_1 = ew \mod q$、$u_2 = rw \mod q$。</li>
+<li>计算 $P = u_1 G + u_2 V$。</li>
+<li>验证签名的有效性：如果 $r \equiv x(P) \mod q$，则签名有效。</li>
+</ol>
+<h2 id="签名验证的证明">签名验证的证明</h2>
+<p>为了证明 ECDSA 的有效性，即验证步骤能够成功验证有效签名，我们可以进行如下计算：</p>
+<p>根据签名的定义，验证过程中需要检查的等式为：</p>
+<p>$$
+v_1 G + v_2 V = d s_2^{-1} G + s_1 s_2^{-1} (s G)
+$$</p>
+<p>其中：</p>
+<ul>
+<li>$v_1$ 和 $v_2$ 是在验证过程中计算的值，</li>
+<li>$s_1$ 是签名中的 $r$。</li>
+</ul>
+<p>我们可以将右侧的表达式重新排列为：</p>
+<p>$$
+= (d + s s_1) s_2^{-1} G
+$$</p>
+<p>如果我们继续简化，可以得到：</p>
+<p>$$
+= (e s_2) s_2^{-1} G
+$$</p>
+<p>因此，有：</p>
+<p>$$
+x(v_1 G + v_2 V) \mod q = x(e G) \mod q = s_1
+$$</p>
+<p>这表明，签名是有效的。</p>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/tags/crypto/">Crypto</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/x2--a-mod-p%E5%8D%B3rabin/" data-toggle="tooltip" data-placement="top" title="Elliptic Curves  Cryptography">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/">En1gm4</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.138.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

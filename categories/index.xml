@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on My New Hugo Site</title>
-    <link>http://localhost:1313/-En1gm4-sblog.github.io/categories/</link>
-    <description>Recent content in Categories on My New Hugo Site</description>
+    <title>Categories on En1gm4</title>
+    <link>https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/categories/</link>
+    <description>Recent content in Categories on En1gm4</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/-En1gm4-sblog.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Category1</title>
-      <link>http://localhost:1313/-En1gm4-sblog.github.io/categories/category1/</link>
-      <pubDate>Thu, 31 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/-En1gm4-sblog.github.io/categories/category1/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Category2</title>
-      <link>http://localhost:1313/-En1gm4-sblog.github.io/categories/category2/</link>
-      <pubDate>Thu, 31 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/-En1gm4-sblog.github.io/categories/category2/</guid>
+      <link>https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/categories/category1/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/categories/category1/</guid>
       <description></description>
     </item>
   </channel>

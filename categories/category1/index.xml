@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Category1 on My New Hugo Site</title>
-    <link>http://localhost:1313/-En1gm4-sblog.github.io/categories/category1/</link>
-    <description>Recent content in Category1 on My New Hugo Site</description>
+    <title>Category1 on En1gm4</title>
+    <link>https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/categories/category1/</link>
+    <description>Recent content in Category1 on En1gm4</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/-En1gm4-sblog.github.io/categories/category1/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/categories/category1/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>New Post Title</title>
-      <link>http://localhost:1313/-En1gm4-sblog.github.io/post/diffie-hellman%E5%92%8Celgamal/</link>
+      <title>Elliptic Curves  Cryptography</title>
+      <link>https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/elliptic-curves--cryptography/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/elliptic-curves--cryptography/</guid>
+      <description>&lt;h1 id=&#34;了解椭圆曲线&#34;&gt;了解椭圆曲线&lt;/h1&gt;&#xA;&lt;p&gt;椭圆曲线的定义是满足特定形式的方程的点的集合。具体而言，椭圆曲线的方程通常写为：&#xA;$$&#xA;Y^2 = X^3 + AX + B&#xA;$$&#xA;其中，A和B是常数，并且这些常数需要满足一个条件，称为判别式条件：&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;4A^3 + 27B^2 \neq 0&#xA;$$&#xA;这个条件确保了椭圆曲线没有重根，从而避免了曲线出现奇点&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;奇点是指在曲线或方程中存在的不规则点，通常表现为导数不存在或不连续的情况。在椭圆曲线中，奇点意味着在该点的切线不唯一，可能导致曲线在该点交叉或重叠，从而影响其结构和性质。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;椭圆曲线的加法法则&#34;&gt;椭圆曲线的加法法则&lt;/h3&gt;&#xA;&lt;p&gt;椭圆曲线上的点可以通过一种特殊的方式进行“加法”。在几何上，如果有两个点P和Q在椭圆曲线上，我们可以通过绘制经过这两个点的直线L，并找到这条直线与椭圆曲线的第三个交点R。然后，我们将R在x轴上反射（对称点），得到的点即为P和Q的和，记作&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;P \oplus Q = R&amp;rsquo;&#xA;$$&lt;/p&gt;&#xA;&lt;h3 id=&#34;反射点与特殊情况&#34;&gt;反射点与特殊情况&lt;/h3&gt;&#xA;&lt;p&gt;当尝试将一个点$P$与其关于x轴的反射点$P&amp;rsquo;$相加时，直线将会是垂直的，且不会产生第三个交点。在这种情况下，定义一个额外的点$O$（在无穷远处），使得对于任何点$P$都有：&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;P \oplus P&amp;rsquo; = O&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;这意味着与其反射相加的结果是椭圆曲线的“零点”。&lt;/p&gt;&#xA;&lt;h3 id=&#34;加法的性质&#34;&gt;加法的性质&lt;/h3&gt;&#xA;&lt;p&gt;椭圆曲线的加法满足以下性质，使得所有的点形成一个阿贝尔群:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;除群的性质外，还满足交换性&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;身份元素&lt;/strong&gt;：对任意点$P$，有$$P + O = P$$&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;逆元素&lt;/strong&gt;：对任意点$P$，有$$P + (-P) = O$$&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;结合律&lt;/strong&gt;：对于任意点$P$、$Q$和$R$，有$$(P + Q) + R = P + (Q + R)$$&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;交换律&lt;/strong&gt;：对于任意点$P$和$Q$，有$$P + Q = Q + P$$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;有限域上的椭圆曲线&#34;&gt;有限域上的椭圆曲线&lt;/h1&gt;&#xA;&lt;h2 id=&#34;椭圆曲线的定义&#34;&gt;椭圆曲线的定义&lt;/h2&gt;&#xA;&lt;p&gt;首先，定义了一个在有限域 $F_p$ 上的椭圆曲线。对于一个素数 $p \geq 3$，椭圆曲线的方程形式为：&#xA;$$&#xA;E: Y^2 = X^3 + AX + B&#xA;$$&#xA;其中 $A, B \in F_p$，并且必须满足条件 $4A^3 + 27B^2 \neq 0$，以确保曲线没有奇点。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Elliptic Curves  Cryptography</title>
+      <link>https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/x2--a-mod-p%E5%8D%B3rabin/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/x2--a-mod-p%E5%8D%B3rabin/</guid>
+      <description>&lt;p&gt;在处理合成模数的同余方程时，通常的做法是首先针对其素数（或素数幂）因子分别求解同余，然后利用中国剩余定理将这些解组合起来。我们通过讨论如何在模 $m$ 下求平方根的问题来说明这一原理。&lt;/p&gt;&#xA;&lt;h3 id=&#34;平方根模素数&#34;&gt;平方根模素数&lt;/h3&gt;&#xA;&lt;p&gt;首先，计算模素数的平方根相对简单。特别是对于模 4 余 3 的素数 $p$，找到平方根的过程非常简单。以下是一个重要的命题：&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;命题 2.26&lt;/strong&gt;：设 $p$ 为素数，并且满足 $p \equiv 3 \mod 4$。令 $a$ 为一个整数，使得同余方程 $x^2 \equiv a \mod p$ 有解，即 $a$ 在模 $p$ 下有平方根。则有：&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;b \equiv a^{(p+1)/4} \mod p&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;是一个解，满足 $b^2 \equiv a \mod p$。&lt;/p&gt;&#xA;&lt;p&gt;这个公式仅在 $a$ 在模 $p$ 下有平方根的情况下有效。&lt;/p&gt;&#xA;&lt;h4 id=&#34;证明原根欧拉定理&#34;&gt;证明(原根，欧拉定理)&lt;/h4&gt;&#xA;&lt;p&gt;设 $g$ 为模 $p$ 的原根，那么 $a$ 可以表示为 $g^{2k} \mod p$，而 $a$ 在模 $p$ 下有平方根意味着 $a$ 是 $g$ 的偶数次幂。计算 $b^2$：&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;b^2 \equiv a^{(p+1)/2} \equiv (g^{2k})^{(p+1)/2} \equiv g^{(p+1)k} \mod p&#xA;$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Diffie-Hellman和ElGamal</title>
+      <link>https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/diffie-hellman%E5%92%8Celgamal/</link>
       <pubDate>Thu, 31 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/-En1gm4-sblog.github.io/post/diffie-hellman%E5%92%8Celgamal/</guid>
+      <guid>https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/diffie-hellman%E5%92%8Celgamal/</guid>
       <description>&lt;h1 id=&#34;diffie-hellman&#34;&gt;Diffie-Hellman&lt;/h1&gt;&#xA;&lt;p&gt;Diffie-Hellman密钥交换是一种允许两方在不安全的通道上安全地共享密钥的方法。其基本思想是利用离散对数问题的难解性，确保即使攻击者能够监听双方的通信，也无法轻易计算出共享的密钥。&lt;/p&gt;&#xA;&lt;h3 id=&#34;具体步骤&#34;&gt;具体步骤&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;初始化&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;两方（通常称为Alice和Bob）首先选择一个大型素数 p 和一个生成元 g（一个小于 p 的整数，且 g 在模 p 意义下是一个原根).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;私钥选择&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Alice 随机选择一个私钥 a，Bob 随机选择一个私钥 b。这两个私钥必须保密。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;计算公钥&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Alice 计算她的公钥 A： $A = g^a \mod p$&lt;/li&gt;&#xA;&lt;li&gt;Bob 计算他的公钥 B： $B = g^b \mod p$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;交换公钥&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Alice 将公钥 A 发送给 Bob，Bob 将公钥 B 发送给 Alice。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;计算共享密钥&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Alice 使用 Bob 的公钥 B 计算共享密钥K： $K = B^a \mod p$&lt;/li&gt;&#xA;&lt;li&gt;Bob 使用 Alice 的公钥 A 计算共享密钥K： $K = A^b \mod p$&lt;/li&gt;&#xA;&lt;li&gt;由于数学性质，两个计算出的共享密钥 K 是相同的：$K = (g^b)^a \mod p = (g^a)^b \mod p$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;安全性分析&#34;&gt;安全性分析&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;离散对数问题&lt;/strong&gt;：尽管公钥 A 和 B 是公开的，攻击者如果试图计算共享密钥 K，需要解决离散对数问题，即从 A 和 g 计算出私钥 a 或从 B 和 g 计算出私钥 b。这是目前已知的非常困难的问题。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Twenty Years of  Attacks on the RSA  Cryptosystem</title>
-      <link>http://localhost:1313/-En1gm4-sblog.github.io/post/twenty-years/</link>
+      <link>https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/twenty-years/</link>
       <pubDate>Fri, 25 Oct 2024 13:45:26 +0800</pubDate>
-      <guid>http://localhost:1313/-En1gm4-sblog.github.io/post/twenty-years/</guid>
+      <guid>https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/twenty-years/</guid>
       <description>&lt;h2 id=&#34;introduce-rsa&#34;&gt;introduce RSA&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;介绍了 RSA 密码基本原理&#xA;&lt;ul&gt;&#xA;&lt;li&gt;无法因式分解N时，枚举$Z^*_N$,时间复杂度为$O(N)$,没有讨论价值。&lt;/li&gt;&#xA;&lt;li&gt;要关注的是运行时间远小于N的算法,理想情况下这些算法的时间复杂度是 $O(n^c)$，其中 $n=log_⁡2N$，且常数 c 应该比较小（比如小于 5），这才是高效算法。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;RSA 函数&#xA;&lt;ul&gt;&#xA;&lt;li&gt;一种陷门单向函数，即容易计算但很难在没有私钥d的情况下反转。&lt;/li&gt;&#xA;&lt;li&gt;用于数字签名：签名者用私钥$⟨N,d⟩$进行签名，任何人都可用公钥验证签名，具体签名S为：$$S = M^d \mod N$$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;分解因式 N 以解密&#xA;&lt;ul&gt;&#xA;&lt;li&gt;目前分解大整数的最佳算法是 General Number Field Sieve ，时间复杂度为:$$\exp\left( (c + o(1))n^{1/3} (\log n)^{2/3} \right)$$&lt;/li&gt;&#xA;&lt;li&gt;如果 p−1 是小质数的乘积，则 N 容易被分解&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;open problem 1&lt;/strong&gt; :是否必须进行因数分解才能破解 RSA ?给定 N 和加密指数 e ，我们能否在不分解 N 的情况下高效地计算出明文的 e 次根模 N？&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Fact 1&lt;/strong&gt;：知道私钥 d 和分解 N 等效，如果知道私钥 d，可以高效地对模数 N=pq 进行因数分解；反之，给定模数 N 的因数分解，也可以高效地恢复私钥 d。&#xA;&lt;ul&gt;&#xA;&lt;li&gt;证明:设 $k=de−1$, k 是 $\phi(N$) 的倍数。&#xA;ϕ(N) 是偶数，因此 k 可以表示为 $k = 2^t r$，其中  r 是一个奇数，且 $t \geq 1$。&#xA;对于任意 $g \in Z^*_N$,$g^k≡1\mod N$,&#xA;x$≡1\ mod\ p$, $x \equiv -1 \mod q$,计算 $\text{gcd}(x - 1, N)$,d得到p或q&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;elementary-attacks&#34;&gt;elementary attacks&lt;/h1&gt;&#xA;&lt;h3 id=&#34;common-modulus使用相同的n&#34;&gt;Common Modulus（使用相同的N）&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;使用相同的模数 N=p*q 为多个用户加密，为每个用户提供不同的公钥和私钥&lt;/li&gt;&#xA;&lt;li&gt;表面上看，一个用户无法知道其他人的d，所以是安全的&lt;/li&gt;&#xA;&lt;li&gt;事实上一个用户可以用他的e和d对N进行因式分解，从而在别人的e中知道别人的d&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;blinding盲签名&#34;&gt;Blinding(盲签名)&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;定义：即能够在不知道原始消息的情况下完成签名&lt;/li&gt;&#xA;&lt;li&gt;实现过程：&#xA;&lt;ol&gt;&#xA;&lt;li&gt;选择一个随机数:$r \in \mathbb{Z}^*_N$&lt;/li&gt;&#xA;&lt;li&gt;构造盲消息$M_0$:$M_0 = r^e M \mod N$&lt;/li&gt;&#xA;&lt;li&gt;签名者在不知道原始消息 M 的情况下对$M_1$进行签名：$S_0 = M_0^d \mod N$&lt;/li&gt;&#xA;&lt;li&gt;提取有效签名：$S =  S_0/r \mod N$&#xA;正确性：$S^e = ( S_0)^e/r^e\equiv  (M_0)^d/r^e\equiv  (r^e M)^d/r^e\equiv M \mod N$&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;low-private-exponent-attacksd小&#34;&gt;low private exponent attacks（d小）&lt;/h1&gt;&#xA;&lt;p&gt;为了减少解密时间，可能使用较小的 d ，但是 d 很小容易被使用 Wiener 定理轻松破解&lt;/p&gt;</description>
     </item>
   </channel>

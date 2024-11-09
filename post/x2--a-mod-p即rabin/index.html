@@ -12,50 +12,22 @@
  
 
 
-      <title>Diffie-Hellman和ElGamal - </title>
+      <title>Elliptic Curves  Cryptography - </title>
 
-  <meta name="description" content="Diffie-Hellman
-Diffie-Hellman密钥交换是一种允许两方在不安全的通道上安全地共享密钥的方法。其基本思想是利用离散对数问题的难解性，确保即使攻击者能够监听双方的通信，也无法轻易计算出共享的密钥。
-具体步骤
-
-
-初始化：
-
-两方（通常称为Alice和Bob）首先选择一个大型素数 p 和一个生成元 g（一个小于 p 的整数，且 g 在模 p 意义下是一个原根).
-
-
-
-私钥选择：
-
-Alice 随机选择一个私钥 a，Bob 随机选择一个私钥 b。这两个私钥必须保密。
-
-
-
-计算公钥：
-
-Alice 计算她的公钥 A： $A = g^a \mod p$
-Bob 计算他的公钥 B： $B = g^b \mod p$
-
-
-
-交换公钥：
-
-Alice 将公钥 A 发送给 Bob，Bob 将公钥 B 发送给 Alice。
-
-
-
-计算共享密钥：
-
-Alice 使用 Bob 的公钥 B 计算共享密钥K： $K = B^a \mod p$
-Bob 使用 Alice 的公钥 A 计算共享密钥K： $K = A^b \mod p$
-由于数学性质，两个计算出的共享密钥 K 是相同的：$K = (g^b)^a \mod p = (g^a)^b \mod p$
-
-
-
-安全性分析
-
-
-离散对数问题：尽管公钥 A 和 B 是公开的，攻击者如果试图计算共享密钥 K，需要解决离散对数问题，即从 A 和 g 计算出私钥 a 或从 B 和 g 计算出私钥 b。这是目前已知的非常困难的问题。"><script type="application/ld+json">
+  <meta name="description" content="在处理合成模数的同余方程时，通常的做法是首先针对其素数（或素数幂）因子分别求解同余，然后利用中国剩余定理将这些解组合起来。我们通过讨论如何在模 $m$ 下求平方根的问题来说明这一原理。
+平方根模素数
+首先，计算模素数的平方根相对简单。特别是对于模 4 余 3 的素数 $p$，找到平方根的过程非常简单。以下是一个重要的命题：
+命题 2.26：设 $p$ 为素数，并且满足 $p \equiv 3 \mod 4$。令 $a$ 为一个整数，使得同余方程 $x^2 \equiv a \mod p$ 有解，即 $a$ 在模 $p$ 下有平方根。则有：
+$$
+b \equiv a^{(p&#43;1)/4} \mod p
+$$
+是一个解，满足 $b^2 \equiv a \mod p$。
+这个公式仅在 $a$ 在模 $p$ 下有平方根的情况下有效。
+证明(原根，欧拉定理)
+设 $g$ 为模 $p$ 的原根，那么 $a$ 可以表示为 $g^{2k} \mod p$，而 $a$ 在模 $p$ 下有平方根意味着 $a$ 是 $g$ 的偶数次幂。计算 $b^2$：
+$$
+b^2 \equiv a^{(p&#43;1)/2} \equiv (g^{2k})^{(p&#43;1)/2} \equiv g^{(p&#43;1)k} \mod p
+$$"><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
@@ -90,8 +62,8 @@ Bob 使用 Alice 的公钥 A 计算共享密钥K： $K = A^b \mod p$
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/zzzzzyx806.github.io\/-En1gm4-sblog.github.io\/post\/diffie-hellman%E5%92%8Celgamal\/",
-          "name": "Diffie hellman和 el gamal"
+          "@id": "https:\/\/zzzzzyx806.github.io\/-En1gm4-sblog.github.io\/post\/x2--a-mod-p%E5%8D%B3rabin\/",
+          "name": "Elliptic curves cryptography"
         }
     }]
 }
@@ -102,15 +74,15 @@ Bob 使用 Alice 的公钥 A 计算共享密钥K： $K = A^b \mod p$
   "author": {
     "name" : ""
   },
-  "headline": "Diffie-Hellman和ElGamal",
-  "description" : "Diffie-Hellman Diffie-Hellman密钥交换是一种允许两方在不安全的通道上安全地共享密钥的方法。其基本思想是利用离散对数问题的难解性，确保即使攻击者能够监听双方的通信，也无法轻易计算出共享的密钥。\n具体步骤 初始化：\n两方（通常称为Alice和Bob）首先选择一个大型素数 p 和一个生成元 g（一个小于 p 的整数，且 g 在模 p 意义下是一个原根). 私钥选择：\nAlice 随机选择一个私钥 a，Bob 随机选择一个私钥 b。这两个私钥必须保密。 计算公钥：\nAlice 计算她的公钥 A： $A = g^a \\mod p$ Bob 计算他的公钥 B： $B = g^b \\mod p$ 交换公钥：\nAlice 将公钥 A 发送给 Bob，Bob 将公钥 B 发送给 Alice。 计算共享密钥：\nAlice 使用 Bob 的公钥 B 计算共享密钥K： $K = B^a \\mod p$ Bob 使用 Alice 的公钥 A 计算共享密钥K： $K = A^b \\mod p$ 由于数学性质，两个计算出的共享密钥 K 是相同的：$K = (g^b)^a \\mod p = (g^a)^b \\mod p$ 安全性分析 离散对数问题：尽管公钥 A 和 B 是公开的，攻击者如果试图计算共享密钥 K，需要解决离散对数问题，即从 A 和 g 计算出私钥 a 或从 B 和 g 计算出私钥 b。这是目前已知的非常困难的问题。\n",
+  "headline": "Elliptic Curves  Cryptography",
+  "description" : "在处理合成模数的同余方程时，通常的做法是首先针对其素数（或素数幂）因子分别求解同余，然后利用中国剩余定理将这些解组合起来。我们通过讨论如何在模 $m$ 下求平方根的问题来说明这一原理。\n平方根模素数 首先，计算模素数的平方根相对简单。特别是对于模 4 余 3 的素数 $p$，找到平方根的过程非常简单。以下是一个重要的命题：\n命题 2.26：设 $p$ 为素数，并且满足 $p \\equiv 3 \\mod 4$。令 $a$ 为一个整数，使得同余方程 $x^2 \\equiv a \\mod p$ 有解，即 $a$ 在模 $p$ 下有平方根。则有：\n$$ b \\equiv a^{(p\u002b1)\/4} \\mod p $$\n是一个解，满足 $b^2 \\equiv a \\mod p$。\n这个公式仅在 $a$ 在模 $p$ 下有平方根的情况下有效。\n证明(原根，欧拉定理) 设 $g$ 为模 $p$ 的原根，那么 $a$ 可以表示为 $g^{2k} \\mod p$，而 $a$ 在模 $p$ 下有平方根意味着 $a$ 是 $g$ 的偶数次幂。计算 $b^2$：\n$$ b^2 \\equiv a^{(p\u002b1)\/2} \\equiv (g^{2k})^{(p\u002b1)\/2} \\equiv g^{(p\u002b1)k} \\mod p $$\n",
   "inLanguage" : "en",
-  "wordCount":  187 ,
-  "datePublished" : "2024-10-31T00:00:00\u002b00:00",
-  "dateModified" : "2024-10-31T00:00:00\u002b00:00",
+  "wordCount":  248 ,
+  "datePublished" : "2024-11-09T00:00:00\u002b00:00",
+  "dateModified" : "2024-11-09T00:00:00\u002b00:00",
   "image" : "https:\/\/zzzzzyx806.github.io\/-En1gm4-sblog.github.io\/",
   "keywords" : [ "Crypto" ],
-  "mainEntityOfPage" : "https:\/\/zzzzzyx806.github.io\/-En1gm4-sblog.github.io\/post\/diffie-hellman%E5%92%8Celgamal\/",
+  "mainEntityOfPage" : "https:\/\/zzzzzyx806.github.io\/-En1gm4-sblog.github.io\/post\/x2--a-mod-p%E5%8D%B3rabin\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/zzzzzyx806.github.io\/-En1gm4-sblog.github.io\/",
@@ -125,62 +97,30 @@ Bob 使用 Alice 的公钥 A 计算共享密钥K： $K = A^b \mod p$
 </script>
 
 
-<meta property="og:title" content="Diffie-Hellman和ElGamal" />
-<meta property="og:description" content="Diffie-Hellman
-Diffie-Hellman密钥交换是一种允许两方在不安全的通道上安全地共享密钥的方法。其基本思想是利用离散对数问题的难解性，确保即使攻击者能够监听双方的通信，也无法轻易计算出共享的密钥。
-具体步骤
-
-
-初始化：
-
-两方（通常称为Alice和Bob）首先选择一个大型素数 p 和一个生成元 g（一个小于 p 的整数，且 g 在模 p 意义下是一个原根).
-
-
-
-私钥选择：
-
-Alice 随机选择一个私钥 a，Bob 随机选择一个私钥 b。这两个私钥必须保密。
-
-
-
-计算公钥：
-
-Alice 计算她的公钥 A： $A = g^a \mod p$
-Bob 计算他的公钥 B： $B = g^b \mod p$
-
-
-
-交换公钥：
-
-Alice 将公钥 A 发送给 Bob，Bob 将公钥 B 发送给 Alice。
-
-
-
-计算共享密钥：
-
-Alice 使用 Bob 的公钥 B 计算共享密钥K： $K = B^a \mod p$
-Bob 使用 Alice 的公钥 A 计算共享密钥K： $K = A^b \mod p$
-由于数学性质，两个计算出的共享密钥 K 是相同的：$K = (g^b)^a \mod p = (g^a)^b \mod p$
-
-
-
-安全性分析
-
-
-离散对数问题：尽管公钥 A 和 B 是公开的，攻击者如果试图计算共享密钥 K，需要解决离散对数问题，即从 A 和 g 计算出私钥 a 或从 B 和 g 计算出私钥 b。这是目前已知的非常困难的问题。">
-<meta property="og:url" content="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/diffie-hellman%E5%92%8Celgamal/" />
+<meta property="og:title" content="Elliptic Curves  Cryptography" />
+<meta property="og:description" content="在处理合成模数的同余方程时，通常的做法是首先针对其素数（或素数幂）因子分别求解同余，然后利用中国剩余定理将这些解组合起来。我们通过讨论如何在模 $m$ 下求平方根的问题来说明这一原理。
+平方根模素数
+首先，计算模素数的平方根相对简单。特别是对于模 4 余 3 的素数 $p$，找到平方根的过程非常简单。以下是一个重要的命题：
+命题 2.26：设 $p$ 为素数，并且满足 $p \equiv 3 \mod 4$。令 $a$ 为一个整数，使得同余方程 $x^2 \equiv a \mod p$ 有解，即 $a$ 在模 $p$ 下有平方根。则有：
+$$
+b \equiv a^{(p&#43;1)/4} \mod p
+$$
+是一个解，满足 $b^2 \equiv a \mod p$。
+这个公式仅在 $a$ 在模 $p$ 下有平方根的情况下有效。
+证明(原根，欧拉定理)
+设 $g$ 为模 $p$ 的原根，那么 $a$ 可以表示为 $g^{2k} \mod p$，而 $a$ 在模 $p$ 下有平方根意味着 $a$ 是 $g$ 的偶数次幂。计算 $b^2$：
+$$
+b^2 \equiv a^{(p&#43;1)/2} \equiv (g^{2k})^{(p&#43;1)/2} \equiv g^{(p&#43;1)k} \mod p
+$$">
+<meta property="og:url" content="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/x2--a-mod-p%E5%8D%B3rabin/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="En1gm4" />
 
-  <meta name="twitter:title" content="Diffie-Hellman和ElGamal" />
-  <meta name="twitter:description" content="Diffie-Hellman
-Diffie-Hellman密钥交换是一种允许两方在不安全的通道上安全地共享密钥的方法。其基本思想是利用离散对数问题的难解性，确保即使攻击者能够监听双方的通信，也无法轻易计算出共享的密钥。
-具体步骤
-
-
-初始化：
-
-两方（通常称为Alice和Bob）首先选择一个大型素数 p 和一个生成元 g（一个小于 p 的整数，且 g 在模 p 意义下是一个原根). …">
+  <meta name="twitter:title" content="Elliptic Curves  Cryptography" />
+  <meta name="twitter:description" content="在处理合成模数的同余方程时，通常的做法是首先针对其素数（或素数幂）因子分别求解同余，然后利用中国剩余定理将这些解组合起来。我们通过讨论如何在模 $m$ 下求平方根的问题来说明这一原理。
+平方根模素数
+首先，计算模素数的平方根相对简单。特别是对于模 4 余 3 的素数 $p$，找到平方根的过程非常简单。以下是一个重要的命题：
+命题 2.26：设 $p$ 为素数，并且满足 $p \equiv 3 …">
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="generator" content="Hugo 0.138.0">
   <link rel="alternate" href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/index.xml" type="application/rss+xml" title="En1gm4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
@@ -307,7 +247,7 @@ Diffie-Hellman密钥交换是一种允许两方在不安全的通道上安全地
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Diffie-Hellman和ElGamal</h1>
+                <h1>Elliptic Curves  Cryptography</h1>
               
               
               
@@ -315,7 +255,7 @@ Diffie-Hellman密钥交换是一种允许两方在不安全的通道上安全地
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on October 31, 2024
+  <i class="fas fa-calendar"></i>&nbsp;Posted on November 9, 2024
   
   
   
@@ -343,92 +283,61 @@ Diffie-Hellman密钥交换是一种允许两方在不安全的通道上安全地
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h1 id="diffie-hellman">Diffie-Hellman</h1>
-<p>Diffie-Hellman密钥交换是一种允许两方在不安全的通道上安全地共享密钥的方法。其基本思想是利用离散对数问题的难解性，确保即使攻击者能够监听双方的通信，也无法轻易计算出共享的密钥。</p>
-<h3 id="具体步骤">具体步骤</h3>
-<ol>
-<li>
-<p><strong>初始化</strong>：</p>
+        <p>在处理合成模数的同余方程时，通常的做法是首先针对其素数（或素数幂）因子分别求解同余，然后利用中国剩余定理将这些解组合起来。我们通过讨论如何在模 $m$ 下求平方根的问题来说明这一原理。</p>
+<h3 id="平方根模素数">平方根模素数</h3>
+<p>首先，计算模素数的平方根相对简单。特别是对于模 4 余 3 的素数 $p$，找到平方根的过程非常简单。以下是一个重要的命题：</p>
+<p><strong>命题 2.26</strong>：设 $p$ 为素数，并且满足 $p \equiv 3 \mod 4$。令 $a$ 为一个整数，使得同余方程 $x^2 \equiv a \mod p$ 有解，即 $a$ 在模 $p$ 下有平方根。则有：</p>
+<p>$$
+b \equiv a^{(p+1)/4} \mod p
+$$</p>
+<p>是一个解，满足 $b^2 \equiv a \mod p$。</p>
+<p>这个公式仅在 $a$ 在模 $p$ 下有平方根的情况下有效。</p>
+<h4 id="证明原根欧拉定理">证明(原根，欧拉定理)</h4>
+<p>设 $g$ 为模 $p$ 的原根，那么 $a$ 可以表示为 $g^{2k} \mod p$，而 $a$ 在模 $p$ 下有平方根意味着 $a$ 是 $g$ 的偶数次幂。计算 $b^2$：</p>
+<p>$$
+b^2 \equiv a^{(p+1)/2} \equiv (g^{2k})^{(p+1)/2} \equiv g^{(p+1)k} \mod p
+$$</p>
+<p>因为 $g^{p-1} \equiv 1 \mod p$，所以可以将 $g^{(p+1)k}$ 进行简化，最终得出 $b^2 \equiv a \mod p$，证明 $b$ 确实是 $a$ 在模 $p$ 下的平方根。</p>
+<h3 id="示例">示例</h3>
+<p><strong>例子 2.27</strong>：寻找 $a=2201$ 在素数 $p=4127$ 下的平方根。使用命题 2.26，我们有：</p>
+<p>$$
+b \equiv 2201^{(4127+1)/4} \mod 4127
+$$</p>
+<p>计算得到 $b \equiv 3718 \mod 4127$。验证 $3718^2 \mod 4127$ 确实等于 $2201$，所以 $b=3718$ 是平方根。</p>
+<h3 id="求合成模数下的平方根">求合成模数下的平方根</h3>
+<p>如果我们要计算模合成数 $m$ 下的平方根，可以通过对 $m$ 进行因式分解，计算每个素数（或素数幂）因子的平方根，然后使用中国剩余定理将这些解结合起来。</p>
+<p><strong>例子 2.28</strong>：求解同余 $x^2 \equiv 197 \mod 437$。 首先因式分解 $437=19 \cdot 23$，然后分别求解：</p>
+<p>$$
+y^2 \equiv 197 \equiv 7 \mod 19
+$$
+$$
+z^2 \equiv 197 \equiv 13 \mod 23
+$$</p>
+<p>由于 $19$ 和 $23$ 都是模 4 余 3 的素数，使用命题 2.26，我们得出：</p>
+<p>$$
+y \equiv \pm 8 \mod 19
+$$
+$$
+z \equiv \pm 6 \mod 23
+$$</p>
+<p>选择正值 $y=8$ 和 $z=6$，接着利用中国剩余定理解同余方程：</p>
+<p>$$
+x \equiv 8 \mod 19
+$$
+$$
+x \equiv 6 \mod 23
+$$</p>
+<p>得到解 $x \equiv 236 \mod 437$，从而求得 $x^2 \equiv 197 \mod 437$ 的解。</p>
+<h3 id="解的唯一性与多重性">解的唯一性与多重性</h3>
+<p>对于合成模数来说，解并不唯一。例如，我们可以用负解 $-236 \equiv 201 \mod 437$ 得到第二个平方根。如果模数为素数，则只有这两个平方根。然而，由于 $437=19 \cdot 23$ 是合成数，还可以通过替换选择中的一个为其负值来获得更多解，从而可以得到四个平方根。</p>
 <ul>
-<li>两方（通常称为Alice和Bob）首先选择一个大型素数 p 和一个生成元 g（一个小于 p 的整数，且 g 在模 p 意义下是一个原根).</li>
+<li>(8,6)</li>
+<li>(8,-6)</li>
+<li>(-8,6)</li>
+<li>(-8,17)</li>
 </ul>
-</li>
-<li>
-<p><strong>私钥选择</strong>：</p>
-<ul>
-<li>Alice 随机选择一个私钥 a，Bob 随机选择一个私钥 b。这两个私钥必须保密。</li>
-</ul>
-</li>
-<li>
-<p><strong>计算公钥</strong>：</p>
-<ul>
-<li>Alice 计算她的公钥 A： $A = g^a \mod p$</li>
-<li>Bob 计算他的公钥 B： $B = g^b \mod p$</li>
-</ul>
-</li>
-<li>
-<p><strong>交换公钥</strong>：</p>
-<ul>
-<li>Alice 将公钥 A 发送给 Bob，Bob 将公钥 B 发送给 Alice。</li>
-</ul>
-</li>
-<li>
-<p><strong>计算共享密钥</strong>：</p>
-<ul>
-<li>Alice 使用 Bob 的公钥 B 计算共享密钥K： $K = B^a \mod p$</li>
-<li>Bob 使用 Alice 的公钥 A 计算共享密钥K： $K = A^b \mod p$</li>
-<li>由于数学性质，两个计算出的共享密钥 K 是相同的：$K = (g^b)^a \mod p = (g^a)^b \mod p$</li>
-</ul>
-</li>
-</ol>
-<h3 id="安全性分析">安全性分析</h3>
-<ul>
-<li>
-<p><strong>离散对数问题</strong>：尽管公钥 A 和 B 是公开的，攻击者如果试图计算共享密钥 K，需要解决离散对数问题，即从 A 和 g 计算出私钥 a 或从 B 和 g 计算出私钥 b。这是目前已知的非常困难的问题。</p>
-</li>
-<li>
-<p><strong>监听风险</strong>：即使攻击者能够监听 Alice 和 Bob 之间的所有通信，他们只能获得 g、p、A 和 B，但无法计算出共享密钥 K。</p>
-</li>
-</ul>
-<h1 id="elgamal">ElGamal</h1>
-<p>ElGamal允许双方（如Alice和Bob）安全地交换信息，而无需共享密钥。它使用一对密钥：公钥（公开分享）和私钥（保密）。</p>
-<h2 id="关键组成部分">关键组成部分</h2>
-<ol>
-<li><strong>素数 $p$</strong>：一个大的素数，构成加密系统的基础。</li>
-<li><strong>生成元 $g$</strong>：模 $p$ 的一个大阶元素（原根），用于计算。</li>
-<li><strong>私钥 $a$</strong>：Alice选择的一个秘密数字。</li>
-<li><strong>公钥 $A$</strong>：计算得到的值，公式为
-$$
-A \equiv g^a \mod p
-$$
-并公开。</li>
-</ol>
-<h2 id="加密过程">加密过程</h2>
-<ol>
-<li>Bob希望向Alice发送消息 $m$（一个在2到 $p-1$ 之间的整数）。</li>
-<li>Bob随机选择一个数字 $k$（该数字仅用于此加密））。</li>
-<li>他计算出：
-$$
-c_1 \equiv g^k \mod p \quad (\text{密文的第一部分})
-$$
-$$
-c_2 \equiv m \cdot A^k \mod p \quad (\text{密文的第二部分})
-$$</li>
-<li>密文 $(c_1, c_2)$ 被发送给Alice。</li>
-</ol>
-<h2 id="解密过程">解密过程</h2>
-<ol>
-<li>Alice使用她的私钥 $a$ 解密消息：
-计算
-$$
-x \equiv (c_1^a)^{-1} \mod p \quad (\text{第一部分的逆元素})
-$$</li>
-<li>然后通过
-$$
-m \equiv c_2 \cdot x \mod p
-$$
-得到明文消息 $m$。</li>
-</ol>
+<h3 id="困难性">困难性</h3>
+<p>如果模数 $m$ 较大而无法因式分解，那么在 $m$ 下计算平方根将变得非常困难。实际上，在某种意义上，求解平方根的问题与因式分解的问题同样困难。如果 $m$ 是一个大合成数且不知道其因式分解，那么判断某个整数 $a$ 是否在模 $m$ 下有平方根是一个困难的问题。这也是 Goldwasser–Micali 公钥密码系统的基础。</p>
 
 
         
@@ -449,12 +358,12 @@ $$
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/twenty-years/" data-toggle="tooltip" data-placement="top" title="Twenty Years of  Attacks on the RSA  Cryptosystem">&larr; Previous Post</a>
+              <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/diffie-hellman%E5%92%8Celgamal/" data-toggle="tooltip" data-placement="top" title="Diffie-Hellman和ElGamal">&larr; Previous Post</a>
             </li>
           
           
             <li class="next">
-              <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/x2--a-mod-p%E5%8D%B3rabin/" data-toggle="tooltip" data-placement="top" title="Elliptic Curves  Cryptography">Next Post &rarr;</a>
+              <a href="https://zzzzzyx806.github.io/-En1gm4-sblog.github.io/post/elliptic-curves--cryptography/" data-toggle="tooltip" data-placement="top" title="Elliptic Curves  Cryptography">Next Post &rarr;</a>
             </li>
           
         </ul>
